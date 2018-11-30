@@ -24,6 +24,25 @@ before_install:
    #- sudo install nomad /usr/bin/nomad
    - sudo mkdir -p /etc/nomad.d
    - sudo chmod a+w /etc/nomad.d
+   - sudo install consul /usr/bin/consul
+     (
+     cat <<-EOF
+       [Unit]
+       Description=consul agent
+       Requires=network-online.target
+     	 After=network-online.target
+
+       [Service]
+       Restart=on-failure
+       ExecStart=/usr/bin/consul agent -dev
+       ExecReload=/bin/kill -HUP $MAINPID
+
+       [Install]
+       WantedBy=multi-user.target
+     EOF
+     ) | sudo tee /etc/systemd/system/consul.service
+   - sudo systemctl enable consul.service
+   - sudo systemctl start consul
 jobs:
   include:
     - stage: stage 1
