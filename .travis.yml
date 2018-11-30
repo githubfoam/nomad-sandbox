@@ -4,6 +4,7 @@ sudo: required
 env:
   global:
     - VAGRANT_VERSION="2.2.2"
+    - CONSUL_VERSION=1.4.0
     - NOMAD_VERSION=0.8.6
     - PATH=$HOME/bin:$PATH
 services:
@@ -16,11 +17,13 @@ before_install:
    #- sudo apt-get install unzip curl -y
    - wget https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_linux_amd64.zip
    - unzip -d ~/bin vagrant_${VAGRANT_VERSION}_linux_amd64.zip
+   - wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
+   - unzip -d ~/bin consul_${CONSUL_VERSION}_linux_amd64.zip
    - wget https://releases.hashicorp.com/nomad/${NOMAD_VERSION}/nomad_${NOMAD_VERSION}_linux_amd64.zip
    - unzip -d ~/bin nomad_${NOMAD_VERSION}_linux_amd64.zip
-   - sudo install nomad /usr/bin/nomad
-   - sudo mkdir -p /etc/nomad.d
-   - sudo chmod a+w /etc/nomad.d
+   #- sudo install nomad /usr/bin/nomad
+   #- sudo mkdir -p /etc/nomad.d
+   #- sudo chmod a+w /etc/nomad.d
 jobs:
   include:
     - stage: stage 1
@@ -29,6 +32,7 @@ jobs:
         - docker --version
         - vagrant --version
         - nomad --version
+        - consul --version
     - stage: stage 2
       script:
         - echo "stage 2"
