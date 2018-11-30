@@ -4,6 +4,7 @@ sudo: required
 env:
   global:
     - VAGRANT_VERSION="2.2.2"
+    - NOMAD_VERSION=0.8.6
     - PATH=$HOME/bin:$PATH
 services:
   - docker
@@ -15,12 +16,15 @@ before_install:
    #- sudo apt-get install unzip curl -y
    - wget https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_linux_amd64.zip
    - unzip -d ~/bin vagrant_${VAGRANT_VERSION}_linux_amd64.zip
+   - wget https://releases.hashicorp.com/nomad/${NOMAD_VERSION}/nomad_${NOMAD_VERSION}_linux_amd64.zip
+   - unzip -d ~/bin nomad_${NOMAD_VERSION}_linux_amd64.zip
 jobs:
   include:
     - stage: stage 1
       script:
         - echo "stage 1"
         - docker --version
+        - vagrant --version
     - stage: stage 2
       script:
         - echo "stage 2"
