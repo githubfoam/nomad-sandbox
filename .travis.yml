@@ -11,8 +11,8 @@ branches:
   only:
     - dev
 before_install:
-   - apt-get update
-   - apt-get install unzip curl -y
+   - sudo apt-get update
+   - sudo apt-get install unzip curl -y
    - curl -sSL https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/nomad_${VAGRANT_VERSION}_linux_amd64.zip -o vagrant.zip
    - unzip vagrant.zip
 jobs:
