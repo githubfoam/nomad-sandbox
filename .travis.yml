@@ -18,6 +18,9 @@ before_install:
    - unzip -d ~/bin vagrant_${VAGRANT_VERSION}_linux_amd64.zip
    - wget https://releases.hashicorp.com/nomad/${NOMAD_VERSION}/nomad_${NOMAD_VERSION}_linux_amd64.zip
    - unzip -d ~/bin nomad_${NOMAD_VERSION}_linux_amd64.zip
+   - sudo install nomad /usr/bin/nomad
+   - sudo mkdir -p /etc/nomad.d
+   - sudo chmod a+w /etc/nomad.d
 jobs:
   include:
     - stage: stage 1
@@ -25,6 +28,7 @@ jobs:
         - echo "stage 1"
         - docker --version
         - vagrant --version
+        - nomad --version
     - stage: stage 2
       script:
         - echo "stage 2"

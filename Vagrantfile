@@ -28,8 +28,6 @@ unzip nomad.zip
 sudo install nomad /usr/bin/nomad
 sudo mkdir -p /etc/nomad.d
 sudo chmod a+w /etc/nomad.d
-# Set hostname's IP to made advertisement Just Work
-#sudo sed -i -e "s/.*nomad.*/$(ip route get 1 | awk '{print $NF;exit}') nomad/" /etc/hosts
 echo "==========================Install Consul================================"
 CONSUL_VERSION=1.4.0
 curl -sSL https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip > consul.zip
