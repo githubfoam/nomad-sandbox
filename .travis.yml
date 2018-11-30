@@ -13,9 +13,8 @@ branches:
 before_install:
    - sudo apt-get update
    #- sudo apt-get install unzip curl -y
-   - curl -sSL https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/nomad_${VAGRANT_VERSION}_linux_amd64.zip -o vagrant.zip
-   - ls -la
-   - sudo unzip vagrant.zip
+   - wget https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_linux_amd64.zip
+   - unzip -d ~/bin vagrant_${VAGRANT_VERSION}_linux_amd64.zip
 jobs:
   include:
     - stage: stage 1
