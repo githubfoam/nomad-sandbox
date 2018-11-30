@@ -15,7 +15,7 @@ before_install:
    #- sudo apt-get install unzip curl -y
    - curl -sSL https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/nomad_${VAGRANT_VERSION}_linux_amd64.zip -o vagrant.zip
    - ls -la
-   - unzip vagrant.zip
+   - sudo unzip vagrant.zip
 jobs:
   include:
     - stage: stage 1
