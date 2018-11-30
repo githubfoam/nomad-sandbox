@@ -20,7 +20,7 @@ before_install:
    - wget https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip
    - unzip -d ~/bin consul_${CONSUL_VERSION}_linux_amd64.zip
    - wget https://releases.hashicorp.com/nomad/${NOMAD_VERSION}/nomad_${NOMAD_VERSION}_linux_amd64.zip
-   - sudo unzip -d /usr/bin/nomad nomad_${NOMAD_VERSION}_linux_amd64.zip
+   - sudo unzip -d ~/bin nomad_${NOMAD_VERSION}_linux_amd64.zip
    #- sudo install nomad /usr/bin/nomad
    - sudo mkdir -p /etc/nomad.d
    - sudo chmod a+w /etc/nomad.d
