@@ -40,7 +40,11 @@ jobs:
           # - sudo vagrant up --provider=libvirt k8s-head
           - sudo vagrant status
           - sudo vagrant global-status
-          # - sudo vagrant ssh ceph-admin -c "hostnamectl status"
+          - nomad server members # view the members of the gossip ring
+          - nomad node status # see the registered nodes of the Nomad cluster
+          - nomad job init #Example job file written to example.nomad
+          - nomad job run example.nomad #register example job
+          - nomad status example # inspect the status of the job
           - sudo virsh list --all #show all running KVM/libvirt VMs
 after_success:
     - stage: Finalize

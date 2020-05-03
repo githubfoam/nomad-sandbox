@@ -1,4 +1,4 @@
-Vagrant Sandbox
+Nomand Sandbox
 =========
 
 
@@ -43,3 +43,8 @@ Author Information
 ------------------
 
 An optional section for the role authors
+
+~~~~
+Jobs
+https://learn.hashicorp.com/nomad/getting-started/jobs
+~~~~
