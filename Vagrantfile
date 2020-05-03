@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 $script = <<SCRIPT
 echo "==========================Install Docker================================="
+export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
 sudo apt-get remove docker docker-engine docker.io
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
@@ -28,8 +29,6 @@ unzip nomad.zip
 sudo install nomad /usr/bin/nomad
 sudo mkdir -p /etc/nomad.d
 sudo chmod a+w /etc/nomad.d
-# Set hostname's IP to made advertisement Just Work
-#sudo sed -i -e "s/.*nomad.*/$(ip route get 1 | awk '{print $NF;exit}') nomad/" /etc/hosts
 echo "==========================Install Consul================================"
 CONSUL_VERSION=1.4.0
 curl -sSL https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip > consul.zip
@@ -63,15 +62,27 @@ nomad -autocomplete-install
 SCRIPT
 Vagrant.configure(2) do |config|
   #config.vm.box_check_update = false
-  config.vm.box = "bento/ubuntu-18.04"
+  # config.vm.box = "bento/ubuntu-18.04"
+  config.vm.box = "bento/ubuntu-16.04"
   config.vm.hostname = "nomad-sandbox"
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.name = "nomad-sandbox"
-    vb.memory = "1024"
+    # vb.memory = "1024" #OK
+    vb.memory = "4096"
     vb.cpus = 1
   end
   config.vm.provision "shell", inline: $script, privileged: false
+  config.vm.provision "shell", inline: <<-SHELL
+  echo "===================================================================================="
+                            hostnamectl status
+  echo "===================================================================================="
+  echo "         \   ^__^                                                                  "
+  echo "          \  (oo)\_______                                                          "
+  echo "             (__)\       )\/\                                                      "
+  echo "                 ||----w |                                                         "
+  echo "                 ||     ||                                                         "
+  SHELL
   # Expose the nomad api and ui to the host
   config.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
 end
