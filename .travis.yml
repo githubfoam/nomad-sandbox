@@ -35,6 +35,7 @@ jobs:
           - vagrant box list #verify installed boxes
           - vagrant status #Check the status of the VMs
           - sudo virsh list --all #show all running KVM/libvirt VMs
+          - sudo vagrant up --provider=libvirt
           - sudo vagrant up --provider=libvirt nomad-sandbox
           - sudo vagrant status
           - sudo vagrant global-status
