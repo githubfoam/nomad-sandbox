@@ -72,6 +72,16 @@ Vagrant.configure(2) do |config|
     vb.cpus = 1
   end
   config.vm.provision "shell", inline: $script, privileged: false
+  config.vm.provision "shell", inline: <<-SHELL
+  echo "===================================================================================="
+                            hostnamectl status
+  echo "===================================================================================="
+  echo "         \   ^__^                                                                  "
+  echo "          \  (oo)\_______                                                          "
+  echo "             (__)\       )\/\                                                      "
+  echo "                 ||----w |                                                         "
+  echo "                 ||     ||                                                         "
+  SHELL
   # Expose the nomad api and ui to the host
   config.vm.network "forwarded_port", guest: 4646, host: 4646, auto_correct: true
 end
