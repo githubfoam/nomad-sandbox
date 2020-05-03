@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-Nomand Sandbox
-=======
+
 Nomad Consul Docker Redis Vagrant Sandbox
->>>>>>> dev
 =========
 
 Travis (.com) dev branch:
