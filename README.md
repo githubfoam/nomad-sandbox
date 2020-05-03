@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+Nomand Sandbox
+=======
 Nomad Consul Docker Redis Vagrant Sandbox
+>>>>>>> dev
 =========
 
 Travis (.com) dev branch:
@@ -37,4 +41,13 @@ Travis (.com) dev branch:
              KVM/Installation
              https://help.ubuntu.com/community/KVM/Installation
 
+<<<<<<< HEAD
+An optional section for the role authors
+
+~~~~
+Jobs
+https://learn.hashicorp.com/nomad/getting-started/jobs
+~~~~
+=======
              ~~~~
+>>>>>>> dev

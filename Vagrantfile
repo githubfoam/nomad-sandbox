@@ -62,7 +62,6 @@ nomad -autocomplete-install
 SCRIPT
 Vagrant.configure(2) do |config|
   #config.vm.box_check_update = false
-  # config.vm.box = "bento/ubuntu-18.04"
   config.vm.box = "bento/ubuntu-16.04"
   config.vm.hostname = "nomad-sandbox"
   config.vm.provider "virtualbox" do |vb|
