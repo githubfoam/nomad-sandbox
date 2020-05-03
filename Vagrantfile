@@ -66,7 +66,8 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
     vb.name = "nomad-sandbox"
-    vb.memory = "1024"
+    # vb.memory = "1024" #OK
+    vb.memory = "4096"
     vb.cpus = 1
   end
   config.vm.provision "shell", inline: $script, privileged: false
