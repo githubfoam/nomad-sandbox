@@ -2,7 +2,7 @@ Nomad Consul Docker Redis Vagrant Sandbox
 =========
 
 Travis (.com) dev branch:
-[![Build Status](https://travis-ci.com/githubfoam/nomad-sandbox.svg?branch=dev)](https://travis-ci.com/githubfoam/nomad-sandbox)  
+[![Build Status](https://travis-ci.com/githubfoam/nomad-sandbox.svg?branch=master)](https://travis-ci.com/githubfoam/nomad-sandbox)  
 
 
              ~~~~
