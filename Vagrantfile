@@ -2,6 +2,7 @@
 # vi: set ft=ruby :
 $script = <<SCRIPT
 echo "==========================Install Docker================================="
+export DEBIAN_FRONTEND=noninteractive
 sudo apt-get update
 sudo apt-get remove docker docker-engine docker.io
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common -y
