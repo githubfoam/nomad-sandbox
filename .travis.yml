@@ -30,7 +30,8 @@ jobs:
           - vagrant box list #verify installed boxes
           - vagrant status #Check the status of the VMs
           - sudo virsh list --all #show all running KVM/libvirt VMs
-          - sudo vagrant up --provider=libvirt
+          # - sudo vagrant up --provider=libvirt
+          - travis_wait 40 sudo vagrant up --provider=libvirt #If you expect the command to take more than 20 minutes, prefix the command with travis_wait n where n is the number of minutes by which the waiting time is extended.
           - sudo vagrant status
           - sudo vagrant global-status
           - sudo vagrant ssh nomad-server1 -c "consul members"
