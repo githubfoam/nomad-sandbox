@@ -1,0 +1,7 @@
+---
+- name: setup nomad config dir
+  file: path=/etc/nomad.d state=directory mode='0755'
+- name: setup nomad data dir
+  file: path=/opt/nomad state=directory mode='0755'
+- name: copy nomad server config file
+  template: src=nomad.hcl.j2 dest=/etc/nomad.d/nomad.hcl mode='0644'

@@ -1,0 +1,27 @@
+---
+- name: apt update
+  apt: update_cache=yes cache_valid_time=3600
+- name: install packages
+  apt:
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - ntp
+      - software-properties-common
+      - vim
+      - wget
+      - zip
+- name: install docker key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+- name: install docker repo
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable
+- name: install docker
+  apt:
+    pkg:
+      - docker-ce
+      - docker-ce-cli
+      - containerd.io

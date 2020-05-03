@@ -1,0 +1,11 @@
+datacenter = "{{ consul_datacenter }}"
+data_dir = "/opt/consul"
+encrypt = "vH0wGZdKRoWDp41LUdBILZtTNNzyDTbe0Xv/Nky7PBs="
+server = {{ consul_server }}
+bootstrap_expect = {{ consul_bootstrap_expect }} 
+connect { enabled = true }
+ports { http = 8500, grpc = 8502 }
+bind_addr = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+advertise_addr = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+retry_join = [ "192.168.33.11", "192.168.33.12", "192.168.33.13" ]
+rejoin_after_leave = true

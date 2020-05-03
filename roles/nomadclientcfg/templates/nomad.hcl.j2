@@ -1,0 +1,12 @@
+datacenter = "{{ consul_datacenter }}"
+data_dir = "/opt/nomad"
+
+advertise {
+  http = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+  rpc  = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+  serf = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+}
+
+client {
+  enabled = true
+}

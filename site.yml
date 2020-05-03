@@ -1,0 +1,21 @@
+---
+- hosts: servers
+  roles:
+    - { role: hostname, become: yes, become_method: sudo }
+    - { role: common, become: yes, become_method: sudo }
+    - { role: consul, become: yes, become_method: sudo }
+    - { role: consulcfg, become: yes, become_method: sudo }
+    - { role: consulsystemd, become: yes, become_method: sudo }
+    - { role: nomad, become: yes, become_method: sudo }
+    - { role: nomadservercfg, become: yes, become_method: sudo }
+    - { role: nomadsystemd, become: yes, become_method: sudo }
+- hosts: clients
+  roles:
+    - { role: hostname, become: yes, become_method: sudo }
+    - { role: common, become: yes, become_method: sudo }
+    - { role: consul, become: yes, become_method: sudo }
+    - { role: consulcfg, become: yes, become_method: sudo }
+    - { role: consulsystemd, become: yes, become_method: sudo }
+    - { role: nomad, become: yes, become_method: sudo }
+    - { role: nomadclientcfg, become: yes, become_method: sudo }
+    - { role: nomadsystemd, become: yes, become_method: sudo }

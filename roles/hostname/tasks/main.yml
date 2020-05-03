@@ -1,0 +1,3 @@
+---
+- name: hostnames
+  hostname: name={{ hostname }}

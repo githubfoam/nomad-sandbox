@@ -1,0 +1,7 @@
+---
+- name: setup consul user
+  user: name=consul shell=/bin/false home=/etc/consul.d system=true
+- name: setup consul data dir
+  file: path=/opt/consul state=directory owner=consul group=consul mode='0755'
+- name: install consul
+  unarchive: src=consul_1.6.2_linux_amd64.zip dest=/usr/local/bin

@@ -1,0 +1,8 @@
+[servers]
+nomad-server1 ansible_connection=local hostname=nomad-server1 consul_datacenter=dc1 consul_bootstrap_expect=3 consul_server=true
+nomad-server2 ansible_connection=local hostname=nomad-server2 consul_datacenter=dc1 consul_bootstrap_expect=3 consul_server=true
+nomad-server3 ansible_connection=local hostname=nomad-server3 consul_datacenter=dc1 consul_bootstrap_expect=3 consul_server=true
+
+[clients]
+nomad-client1 ansible_connection=local hostname=nomad-client1 consul_datacenter=dc1 consul_bootstrap_expect=0 consul_server=false
+nomad-client2 ansible_connection=local hostname=nomad-client2 consul_datacenter=dc1 consul_bootstrap_expect=0 consul_server=false

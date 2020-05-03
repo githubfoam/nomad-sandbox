@@ -1,0 +1,7 @@
+---
+- name: install nomad
+  unarchive: src=nomad_0.10.2_linux_amd64.zip dest=/usr/local/bin
+- name: setup cni plugins dir
+  file: path=/opt/cni/bin state=directory mode='0755'
+- name: install cni plugins
+  unarchive: src=cni-plugins-linux-amd64-v0.8.5.tgz dest=/opt/cni/bin

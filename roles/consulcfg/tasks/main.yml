@@ -1,0 +1,5 @@
+---
+- name: setup consul config dir
+  file: path=/etc/consul.d state=directory mode='0755'
+- name: copy consul config file
+  template: src=consul.hcl.j2 dest=/etc/consul.d/consul.hcl mode='0644'

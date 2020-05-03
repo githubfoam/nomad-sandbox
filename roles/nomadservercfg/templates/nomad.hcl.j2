@@ -1,0 +1,12 @@
+data_dir = "/opt/nomad"
+
+advertise {
+  http = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+  rpc  = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+  serf = "{{ ansible_all_ipv4_addresses | select('match', '192.168.*') | list | first }}"
+}
+
+server {
+  enabled = true
+  bootstrap_expect = 3
+}

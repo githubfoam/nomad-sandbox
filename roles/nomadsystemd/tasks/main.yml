@@ -1,0 +1,5 @@
+---
+- name: copy nomad systemd file
+  copy: src=nomad.service dest=/etc/systemd/system/nomad.service mode='0644'
+- name: start nomad service
+  systemd: name=nomad.service enabled=yes masked=no state=started
