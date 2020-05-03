@@ -39,7 +39,7 @@ jobs:
           # - sudo vagrant up --provider=libvirt nomad-sandbox
           - sudo vagrant status
           - sudo vagrant global-status
-          # - sudo vagrant ssh nomad-sandbox -c "nomad server members"
+          - sudo vagrant ssh default -c "nomad server members"
           # - nomad server members # view the members of the gossip ring
           # - nomad node status # see the registered nodes of the Nomad cluster
           # - nomad job init #Example job file written to example.nomad
