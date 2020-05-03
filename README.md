@@ -1,14 +1,15 @@
+<<<<<<< HEAD
 Nomand Sandbox
+=======
+Nomad Consul Docker Redis Vagrant Sandbox
+>>>>>>> dev
 =========
 
-
-----------------
-
-Vagrant Nomad Consul Docker Redis Sandbox
-----------------
+Travis (.com) dev branch:
+[![Build Status](https://travis-ci.com/githubfoam/nomad-sandbox.svg?branch=dev)](https://travis-ci.com/githubfoam/nomad-sandbox)  
 
 
-Command:
+             ~~~~
 
              - nomad agent -config /vagrant/server.hcl &>/dev/null &
              # This means that this server will manage state and make scheduling decisions but will not run any tasks
@@ -33,18 +34,20 @@ Command:
              # http://localhost:4646/ui/clients
              # HTTP/1.1 307 Temporary Redirect
 
+             ~~~~
 
-License
--------
+             ~~~~
 
-GNU General Public License v3.0
+             KVM/Installation
+             https://help.ubuntu.com/community/KVM/Installation
 
-Author Information
-------------------
-
+<<<<<<< HEAD
 An optional section for the role authors
 
 ~~~~
 Jobs
 https://learn.hashicorp.com/nomad/getting-started/jobs
 ~~~~
+=======
+             ~~~~
+>>>>>>> dev
