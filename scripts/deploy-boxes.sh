@@ -17,8 +17,8 @@ echo "==========================================================================
 # vagrant up --provider=libvirt
 
 # https://github.com/chef/bento/tree/master/packer_templates/ubuntu
-vagrant box add "bento/ubuntu-16.04" --provider=virtualbox
-vagrant mutate "bento/ubuntu-16.04" libvirt
+vagrant box add "bento/ubuntu-19.10" --provider=virtualbox
+vagrant mutate "bento/ubuntu-19.10" libvirt
 vagrant up --provider=libvirt --no-parallel
 
 # vagrant box add "centos/8" --provider=virtualbox
